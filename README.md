@@ -46,7 +46,7 @@ Consider *.html file:
 ```
 After replace it will be:
 ```html
-<link href='<%= substitution string %>' rel='stylesheet' type='text/css'>
+<link href='substitution string' rel='stylesheet' type='text/css'>
 ```
 
 ## Release History
