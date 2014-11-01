@@ -40,5 +40,15 @@ grunt.initConfig({
 });
 ```
 
+Consider *.html file:
+```html
+<link href='<%= match string %>' rel='stylesheet' type='text/css'>
+```
+After replace it will be:
+```html
+<link href='<%= substitution string %>' rel='stylesheet' type='text/css'>
+```
+
 ## Release History
-_(Nothing yet)_
+0.1.0
+	First version
