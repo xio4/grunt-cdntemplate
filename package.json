@@ -1,7 +1,7 @@
 {
   "name": "grunt-cdntemplate",
   "description": "The grunt plugin for substitute appropriate CDN by the defined template name and the target",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/xio4/grunt-cdntemplate",
   "author": {
     "name": "Shalkov Petr",

@@ -22,6 +22,7 @@ grunt.loadNpmTasks('grunt-cdntemplate');
 ### Overview
 In your project's Gruntfile, add a section named `cdntemplate` to the data object passed into `grunt.initConfig()`.
 
+Consider we have grunt config:
 ```js
 grunt.initConfig({
    cdntemplate: {
@@ -29,26 +30,36 @@ grunt.initConfig({
          files: {
             // *.html or other files.
          },
+			cdn:[
+				"//ajax.googleapis.com/ajax/lib",
+				"//maxcdn.bootstrapcdn.com/bootstrap/3.3.0"
+			],
          templates: [
-            { match: "match string",
-               tpl: "substitution string"
+            { match: "angular.js",
+               tpl: "<%=cdntemplate.yourtarget.cdn[0]%>/angularjs/1.3.1/angular.min.js"
             },
-				...
+				{	match: "bootstrap.css",
+					tpl: "<%= cdntemplate.yourtarget.cdn[1]%>/css/bootstrap.min.css"
+				},
          ],
       }
   }
 });
 ```
-
-Consider *.html file:
+And part of *.html file:
 ```html
-<link href='<%= match string %>' rel='stylesheet' type='text/css'>
+...
+<link href='<%= bootstrap.css%>' rel='stylesheet' type='text/css'>
+<script src="<%= angular.js%>"></script>
+...
 ```
 After replace it will be:
 ```html
-<link href='substitution string' rel='stylesheet' type='text/css'>
+<link href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+<script src="//ajax.googleapis.com/ajax/lib/angularjs/1.3.1/angular.min.js"></script>
+
 ```
 
 ## Release History
-0.1.0
-	First version
+ *2014-11-03	V0.1.1	Change usage config	
+ *2014-11-02	v0.1.0	First version
